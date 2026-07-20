@@ -1,0 +1,13 @@
+[
+    {
+        "id": "LIB-NOV-001",
+        "title": "Cien años de Soledad",
+        "author": "García Marquez",
+        "publication_year": 1990,
+        "category": "Novela",
+        "isbn": "12S34",
+        "total_copies": 2,
+        "available_copies": 1,
+        "status": "Activo"
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "id": "PRS-0001",
+        "user_id": "USR-001",
+        "book_id": "LIB-NOV-001",
+        "loan_date": "2026-07-19",
+        "expected_return_date": "2026-07-26",
+        "status": "Activo"
+    }
+]
