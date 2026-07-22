@@ -84,6 +84,7 @@ class Book:
         self.total_copies = nuevas_copias
         self.available_copies = nuevas_copias - prestados
 
+
 """
 2. Gestión de usuarios
 
@@ -220,6 +221,7 @@ class Prestamo:
             return 0 # Si el archivo no existe o está vacío, tiene 0 préstamos
 
 
+
 class Report:
 
     def __init__(self, total_books, total_users, active_loans, loans_today, most_requested_book, category_with_most_loans):
@@ -339,6 +341,51 @@ class Menu:
         while True:
             if not self.display_menu():
                 break
+    
+    def mostrar_libro(self,book):
+            print(f"""
+        ========================================
+        📚 LIBRO
+        ========================================
+        ID:                 {book['id']}
+        Título:             {book['title']}
+        Autor:              {book['author']}
+        Categoría:          {book['category']}
+        ISBN:               {book['isbn']}
+        Copias totales:     {book['total_copies']}
+        Disponibles:        {book['available_copies']}
+        Estado:             {book['status']}
+        ========================================
+        """)
+    
+    def mostrar_prestamo(self, loan):
+            print(f"""
+        ========================================
+        📖 PRÉSTAMO
+        ========================================
+        ID:                 {loan['id']}
+        Usuario:            {loan['user_id']}
+        Libro:              {loan['book_id']}
+        Fecha préstamo:     {loan['loan_date']}
+        Fecha devolución:   {loan['expected_return_date']}
+        Estado:             {loan['status']}
+        ========================================
+        """)
+
+    def mostrar_usuario(self,user):
+            print(f"""
+        ========================================
+        👤 USUARIO
+        ========================================
+        ID:                 {user['id']}
+        Nombre:             {user['first_name']} {user['last_name']}
+        Matrícula:          {user['student_id']}
+        Carrera:            {user['major']}
+        Correo:             {user['email']}
+        Teléfono:           {user['phone']}
+        Estado:             {user['status']}
+        ========================================
+        """)    
 
     def manage_books(self):
         """
@@ -462,13 +509,7 @@ class Menu:
                         or search in book["isbn"]
                     ):
 
-                        print(f"""
-                        ID: {book["id"]}
-                        Título: {book["title"]}
-                        Autor: {book["author"]}
-                        ISBN: {book["isbn"]}
-                        Categoría: {book["category"]}
-                        """)
+                        self.mostrar_libro(book)
 
                         found = True
 
@@ -599,7 +640,7 @@ class Menu:
 
                 for user in users:
                     if user["status"] == "Activo":
-                        print(user)
+                        self.mostrar_usuario(user)
 
             elif user_input == "3":
 
@@ -614,7 +655,7 @@ class Menu:
                         or search in user["last_name"].lower()
                         or search in user["student_id"]
                     ):
-                        print(user)
+                        self.mostrar_usuario(user)
 
             elif user_input == "4":
 
@@ -779,7 +820,7 @@ class Menu:
                 for loan in loans:
 
                     if loan["status"] == "Activo":
-                        print(loan)
+                        self.mostrar_prestamo(loan)
 
 
             elif user_input == "4":
@@ -832,7 +873,7 @@ class Menu:
                 for book in books:
 
                     if book["available_copies"] > 0:
-                        print(book)
+                        self.mostrar_libro(book)
 
 
             elif user_input == "4":
@@ -842,7 +883,7 @@ class Menu:
                 for book in books:
 
                     if book["available_copies"] == 0:
-                        print(book)
+                        self.mostrar_libro(book)
 
 
             elif user_input == "5":
@@ -852,7 +893,7 @@ class Menu:
                 for loan in loans:
 
                     if loan["status"] == "Activo":
-                        print(loan)
+                        self.mostrar_prestamo(loan)
 
 
             elif user_input == "6":

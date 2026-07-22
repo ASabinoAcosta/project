@@ -4,9 +4,20 @@
         "title": "Cien años de Soledad",
         "author": "García Marquez",
         "publication_year": 1990,
-        "category": "Novela",
+        "category": "novela",
         "isbn": "12S34",
         "total_copies": 2,
+        "available_copies": 1,
+        "status": "Activo"
+    },
+    {
+        "id": "LIB-NOV-002",
+        "title": "Divergente",
+        "author": "Veronica Roth",
+        "publication_year": 2011,
+        "category": "novela",
+        "isbn": "3444561",
+        "total_copies": 1,
         "available_copies": 1,
         "status": "Activo"
     }
